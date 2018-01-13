@@ -4,6 +4,8 @@
 !//    3x - y + 2z - w = 3
 !//    4x + y -3z + 2w = 5
 !//----------------------------------
+!// 本代码具有一定的局限性，对主元为0或是比较小的主元，不能正确计算
+!// 不过不要担心，后面会推出更新的算法
 Module mod 
   Implicit none 
   Integer, parameter :: m = 4
@@ -14,7 +16,7 @@ Contains
 Subroutine Elimination ( )  !// 高斯消去
   Implicit none 
   Integer :: i, j, k 
-  Real(kind=8), parameter :: eps = 1.d-8
+  Real(kind=8), parameter :: eps = 1.d-4  !// 当主元小于这个数时，程序退出
   Real(kind=8) :: mult
 
   Write ( *,'(1x,a)' ) '经过消去前左端项与右端项为：'
