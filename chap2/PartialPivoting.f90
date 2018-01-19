@@ -75,11 +75,12 @@ Program GaussianElimination
   call BackSubstitution ( )
 End program GaussianElimination
  
+!// 第二部分代码经典高斯消元法失效，下面是改进后的代码（部分主元法），可以成功
 !Module mod 
 !  Implicit none 
 !  Integer, parameter :: m = 3
-!  Real(kind=8) :: a(m,m) = [ 1, -1, 2, -1, 0, 2, 3, -2, 4 ]
-!  Real(kind=8) :: b(m) = [ -3, 1, 0 ]
+!  Real(kind=8) :: a(m,m) = [ 0, 1, 1, 1, 1, 1, 1, 1, -1 ]
+!  Real(kind=8) :: b(m) = [ 2.5, 3.5, 1.5 ]
 !  Real(kind=8) :: x(m) = 0.d0 
 !Contains
 !Subroutine Elimination ( )  !// 高斯消去

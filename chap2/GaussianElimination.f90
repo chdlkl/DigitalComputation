@@ -72,3 +72,71 @@ Program GaussianElimination
   call Elimination ( )
   call BackSubstitution ( )
 End program GaussianElimination
+
+!// 下面的代码，对主元为0这种情况失效  
+!Module mod 
+!  Implicit none 
+!  Integer, parameter :: m = 3
+!  Real(kind=8) :: a(m,m) = [ 0, 1, 1, 1, 1, 1, 1, 1, -1 ]
+!  Real(kind=8) :: b(m) = [ 2.5, 3.5, 1.5 ]
+!  Real(kind=8) :: x(m) = 0.d0 
+!Contains
+!Subroutine Elimination ( )  !// 高斯消去
+!  Implicit none 
+!  Integer :: i, j, k 
+!  Real(kind=8), parameter :: eps = 1.d-4  !// 当主元小于这个数时，程序退出
+!  Real(kind=8) :: mult
+!
+!  Write ( *,'(1x,a)' ) '经过消去前左端项与右端项为：'
+!  Do i = 1, m 
+!    Write ( *,'(*(f12.5))' ) ( a(i,j), j = 1, m ), b(i)
+!  End do 
+!  
+!  Do j = 1, m - 1
+!    If ( abs(a(j,j)) < eps ) Then
+!      Write ( *,'(1x,a)' ) ' The pivot is zero!'
+!      stop 
+!    End if 
+!    Do i = j + 1, m
+!      mult = a(i,j) / a(j,j)
+!      Do k = j, m 
+!        a(i,k) = a(i,k) - mult * a(j,k)
+!      End do 
+!      b(i) = b(i) - mult * b(j)
+!    End do 
+!  End do 
+!
+!  Write ( *,'(1x,a)' ) '经过消去后左端项与右端项为：'
+!  Do i = 1, m 
+!    Write ( *,'(*(f12.5))' ) ( a(i,j), j = 1, m ), b(i)
+!  End do 
+!  
+!End subroutine Elimination 
+!
+!Subroutine BackSubstitution ( )
+!  Implicit none 
+!  Integer :: i, j 
+!  
+!  Do i = m, 1, -1
+!    Do j = i + 1, m 
+!      b(i) = b(i) - a(i,j) * x(j)
+!    End do 
+!    x(i) = b(i) / a(i,i)
+!  End do 
+!
+!  Write ( *,'(1x,a)' ) '原方程解为：'
+!  Do i = 1, m 
+!    Write ( *,'(f12.5)' ) x(i) 
+!  End do 
+!  
+!End subroutine BackSubstitution
+!
+!End module mod 
+!
+!
+!Program GaussianElimination
+!  Use mod 
+!  Implicit none 
+!  call Elimination ( )
+!  call BackSubstitution ( )
+!End program GaussianElimination
