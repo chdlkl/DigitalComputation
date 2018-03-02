@@ -3,7 +3,7 @@ Program LagrangianInterpolation
   Integer :: i, fileid 
   Integer, parameter :: n1 = 51
   Real(kind=8), parameter :: t0 = 0.d0, t1 = 1.d0
-  Real(kind=8) :: tmp, x(n1), y(n1)
+  Real(kind=8) :: x(n1), y(n1)
   
   !// 获取已知点数据
   Open ( newunit = fileid, file = 'origin.dat' )
@@ -14,10 +14,10 @@ Program LagrangianInterpolation
   End do 
   Close ( fileid )
   !// 求插值
-  call GetP( x, y, n1, t0, t1 )
+  call GetInterpolation( x, y, n1, t0, t1 )
 End program LagrangianInterpolation
   
-Subroutine GetP( x, y, n1, t0, t1 )
+Subroutine GetInterpolation( x, y, n1, t0, t1 )
   Implicit none
   Integer :: i, j, k, fileid
   Integer, intent(in) :: n1
@@ -52,4 +52,4 @@ Subroutine GetP( x, y, n1, t0, t1 )
     Write ( fileid,'(2es)' ) xx(k), yy(k)
   End do
   Close ( fileid )
-End subroutine GetP
+End subroutine GetInterpolation
