@@ -1,3 +1,33 @@
+Program QR_complete
+  Implicit none
+  Integer :: i, j
+  Integer, parameter :: m = 4, n = 2
+  Real(kind=8) :: A(m,n), Q(m,m), A0(m,n), R(m,n)
+  Real(kind=8) :: t1, t2
+  
+  a = reshape( [ 1.,2.,2.,-4.,3.,2.,2.,5. ], [m,n] )
+  R = A
+  call calQR( R, m, n, Q )
+  Write ( *,'(1x, a)' ) 'The matrix Q is:'
+  Do i = 1, m
+    Write ( *,'(*(f12.5))' ) Q(i,:)
+  End do
+  Write ( *,'(1x, a)' ) 'The matrix R is:'
+  
+  Do i = 1, m
+    Write ( *,'(*(f12.5))' ) R(i,:)
+  End do
+  
+  !// 检测QR分解是否正确
+  !// A = QR
+  A0 = matmul( transpose(Q),R )
+  Write ( *,'(1x, a)' ) 'The matrix A is:'
+  Do i = 1, m
+    Write ( *,'(*(f12.5))' ) A(i,:)
+  End do
+  
+End program QR
+
 Subroutine calQR( R, m, n, Q ) 
   Implicit none
   Real(kind=8), external :: norm_2, sign0
