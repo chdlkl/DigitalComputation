@@ -64,6 +64,7 @@ Program LM
     End If
     If ( it==1 ) e = Dot_Product(d,d)  !//若是第一次迭代，计算误差epsilon
     H_Lm = H + lamda*eye   !//根据阻尼系数lamda混合得到H矩阵
+    !// 縧amda*I縇evenberg靠縧amda*diag(A'A)縈arquardt靠
     
     !//计算步长delta，并根据步长计算新的参数估计值
     Call LINRG( H_Lm,Inv_H_Lm )   !//使用imsl函数库，计算H_Lm的逆矩阵Inv_H_Lm
