@@ -37,11 +37,6 @@ Program LM
   Use LINRG_INT
   Implicit None
   
-  Write(*,"('------------------------------------------------')") 
-  Write(*,"('    方程模型：y = A*Exp( -B*x )     ')")
-  Write(*,"('   目标：利用LM算法反演参数A与B     ')")
-  Write(*,"('          作者：白南先生            ')") 
-  Write(*,"('       完成日期：2017年5月18日      ')") 
   !//生成单位矩阵
   Forall( i = 1:Nparas, ii = 1:Nparas, i==ii ) eye(i,ii) = 1.d0
   
