@@ -1,3 +1,5 @@
+Module VarLM
+  Implicit none
   !//Nparas为参数个数，Ndata为数据个数,Niters为最大迭代次数
   Integer     ,Parameter :: Nparas = 2,Ndata = 9,Niters = 50,Fileid = 11
   !//临时变量，order=1，继续迭代，否则停止迭代
