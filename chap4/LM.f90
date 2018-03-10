@@ -1,14 +1,3 @@
-!----------------------------------------------------------------------------
-!                                     LM算法
-!                      说明：程序中的变量和数组在声明时已初始化
-!                           方程模型：y = A*Exp( -B*x )
-!                           目标：利用LM算法反演参数A与B
-!                         原方程：y = 20.5*Exp( -0.24*x )
-!                                   作者：luk
-!                              完成日期：2017年5月18日
-!----------------------------------------------------------------------------
-Module VarLM
-  Implicit None
   !//Nparas为参数个数，Ndata为数据个数,Niters为最大迭代次数
   Integer     ,Parameter :: Nparas = 2,Ndata = 9,Niters = 50,Fileid = 11
   !//临时变量，order=1，继续迭代，否则停止迭代
@@ -20,7 +9,7 @@ Module VarLM
   Real(kind=8),Parameter :: y_1(Ndata)  = [19.306,18.182,16.126,14.302,12.685,9.978,7.849,4.857,3.005]   
   !//a0与b0分别为参数猜测初始值,RealA、RealB为真值
   Real(kind=8),Parameter :: a0 = 0.,b0 = 0.,RealA = 20.5,RealB = 0.24
-	!//误差限度
+  !//误差限度
   Real(kind=4)           :: eps = 1e-8
   !//y_est为估计值，d为估计值和实际值y_1之间的误差，rd为数组d的变形
   Real(kind=8)           :: y_est(Ndata) = 0.,d(Ndata) = 0.,rd(Ndata,1) = 0.
@@ -40,7 +29,7 @@ Module VarLM
 End Module VarLM
   
 
-Program TestLM
+Program LM
   Include 'link_fnl_shared.h'
   Use VarLM
   Use LINRG_INT
@@ -76,7 +65,6 @@ Program TestLM
       H = Matmul( JT,J )  !//计算海森矩阵
       
     End If
-		
     If ( it==1 ) e = Dot_Product(d,d)  !//若是第一次迭代，计算误差epsilon
     H_Lm = H + lamda*eye   !//根据阻尼系数lamda混合得到H矩阵
     
@@ -90,7 +78,6 @@ Program TestLM
     
     !//如果||delta||<1e-8，终止迭代
     If ( Dot_Product(delta(:,1),delta(:,1))<eps ) Exit
-		
     !//计算新的可能估计值对应的y和计算残差e
     y_est_Lm = a_Lm*Exp( -b_Lm*x_1 )
     d_Lm = y_1 - y_est_Lm
@@ -131,4 +118,4 @@ Program TestLM
   Write(*,'(3f9.4/)') a_est*Exp( -b_est*x_1 )
   Write(*,"('------------------------------------------------')") 
   
-End Program TestLM
+End Program LM
