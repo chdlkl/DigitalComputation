@@ -41,8 +41,9 @@ Contains
       JT = transpose(J)   
       H = matmul( JT,J )  !//计算海森矩阵
     
-      !//计算步长delta，并根据步长计算新的参数估计值
-      call LINRG( H,Inv_H )   !//使用imsl函数库，计算H的逆矩阵Inv_H
+      !// 计算步长delta，并根据步长计算新的参数估计值
+      call LINRG( H,Inv_H )   !//使用imsl函数库，计算H的逆矩阵Inv_H。或者调用mkl函数库的gesv。
+      !// 或者自己写。本人在第二章已写，懒得调用了
     
       dT = reshape( d,[ndata,1] )  !//为了满足内部函数Matmul的计算法则，对d的数组形状进行改变
       delta = matmul( matmul( Inv_H,JT ),dT )  !//delta为增量
