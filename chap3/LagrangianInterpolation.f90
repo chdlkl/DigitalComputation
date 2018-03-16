@@ -1,11 +1,11 @@
 Program LagrangianInterpolation
   Implicit none
   Integer :: i, fileid 
-  Integer, parameter :: n1 = 51
-  Real(kind=8), parameter :: t0 = 0.d0, t1 = 1.d0
+  Integer, parameter :: n1 = 51  !// 插值基节点数
+  Real(kind=8), parameter :: t0 = 0.d0, t1 = 1.d0  !// 插值区间
   Real(kind=8) :: x(n1), y(n1)
   
-  !// 获取已知点数据
+  !// 获取插值基节点数据
   Open ( newunit = fileid, file = 'origin.dat' )
   Do i = 1, n1
     x(i) = ( i-1 ) * ( t1-t0 ) / ( n1-1 )
