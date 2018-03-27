@@ -64,7 +64,7 @@ Contains
     Integer :: i, j
     Real(kind=DP), parameter :: h = 1.d-6
     j = 0   !// 赋值控制循环变量的初值           
-    m = -1.d0 + h   !// 设置计算域[-1，1] 的下限，即代替-1 
+    m = -1.d0 - h   !// 设置计算域[-1，1] 的下限，即代替-1 
     nstep = nint(2.d0/h)
     Do i = 1, nstep   !// 这个循环次数应该是由步长0.000001决 定,计算方法：2000000=2/0.000001     
       If ( N_Legendre(m)*N_Legendre(m+h) < 0 ) then   !// 从下限处开始往上逐步累加
