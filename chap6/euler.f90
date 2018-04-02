@@ -6,7 +6,7 @@ End program euler
 Subroutine euler_slu()
   Implicit none
   Real(kind=8), external :: derfunc
-  Integer, parameter :: n = 100 !// 分成100等份
+  Integer, parameter :: n = 10 !// 分成100等份
   Real(kind=8) :: a = 0.d0, b = 1.d0  !// 时间区间
   Real(kind=8) :: y0, t, y, h
   Integer :: i
@@ -15,10 +15,10 @@ Subroutine euler_slu()
   h = ( b - a ) / n
   open ( 100, file = 'euler_slu.dat' )
   write( 100,* ) a, y0
-  Do i = 2, n+1
+  Do i = 1, n
     t = a + h * ( i - 1 )
     y = y0 + h * derfunc( t, y0 ) 
-    write( 100,* ) t, y
+    write( 100,* ) t+h, y
     y0 = y
   End do
   close( 100 )
