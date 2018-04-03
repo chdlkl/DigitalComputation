@@ -1,5 +1,3 @@
-% This code is made by Ahmed Eltahan
-
 %* This code intends to solve 1st order ODE RungeKuttaFehlberg procedure which is 6th order accuracy 
 
 
