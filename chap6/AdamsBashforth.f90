@@ -59,7 +59,7 @@ Contains
     !//由梯形算法计算前四个解
     call Trapezoid( n, u1, num, h, t0 )
   
-    !//用Adams外插法进行计算其它项
+    !//AdamsForth公式
     Do i = n+1, num
       u1(i) = u1(i-1) + h * ( b(0)*(-3.*u1(i-1)) + b(1)*(-3.*u1(i-2)) + b(2)*(-3.*u1(i-3)) + b(3)*(-3.*u1(i-4)) )
     End do
@@ -101,7 +101,7 @@ Contains
     Real(kind=8) :: y0, t, y
     Integer :: i
     
-    y0 = 1.d0
+    y0 = 1.d0  !// 初值
     u1(0) = y0
     Do i = 1, n
       t = t0 + h * ( i - 1 )
@@ -115,7 +115,7 @@ Contains
   Real(kind=8) function derfunc( y )
     Implicit none
     Real(kind=8), intent(in) :: y
-    derfunc = -3.d0 * y
+    derfunc = -3.d0 * y  !// 已知的微分方程
   End function derfunc
   
 End module AdamsBashforth

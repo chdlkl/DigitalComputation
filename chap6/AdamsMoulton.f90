@@ -65,7 +65,7 @@ Contains
     End do
     close( 100 )
   
-    !//用Adams内插法进行计算其它项
+    !//AdamsMoulton公式
     Do i = n, num  !由于本程序用的是3阶，所以内插法的前3个数值要用外插法给出（内插法要给出前4个数值）
       t11 = u11(i)
       Do
