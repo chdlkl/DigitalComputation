@@ -8,7 +8,7 @@ Subroutine TrapezoidMethod_slu()
   Real(kind=8), external :: derfunc
   Integer, parameter :: n = 100 !// 分成100等份
   Real(kind=8) :: a = 0.d0, b = 1.d0  !// 时间区间
-  Real(kind=8) :: y0, t, y, h, y_tmp
+  Real(kind=8) :: y0, t, y, h
   Integer :: i
 
   y0 = 1.d0  !// 初值
@@ -18,7 +18,6 @@ Subroutine TrapezoidMethod_slu()
   Do i = 1, n
     t = a + h * ( i - 1 )
     !// Wi+1 = Wi + h * ( f(Ti,Wi) + f( Ti+h,Wi+h*f(Ti,Wi) ) )
-    y_tmp = derfunc( t, y0 )
     y = y0 + h * ( derfunc( t, y0 ) + derfunc( t + h, y0 + h*derfunc( t, y0 ) ) ) / 2.d0
     write( 100,* ) t+h, y
     y0 = y
