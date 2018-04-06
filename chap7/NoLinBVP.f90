@@ -14,7 +14,7 @@ Contains
     y = 0.d0  !// 赋初值
     Do i = 1, nloop
       call Inv( y, deltay, n )
-      y = y - deltay
+      y = y - deltay  !// 牛顿迭代法求解非线性方程组
     End do
     
     !// output
