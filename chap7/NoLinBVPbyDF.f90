@@ -1,3 +1,6 @@
+!// y'' = y' + cosy
+!// y(0) = 0
+!// y(pi) = 1
 Module NoLinBVP
   Implicit none
   Integer, parameter :: n = 99  !// 待求点的个数

@@ -1,3 +1,6 @@
+!// y'' = 4y
+!// y(0) = 1
+!// y(1) = 3
 Module LinBVP
   Implicit none
   Integer, parameter :: n = 99  !// 待求点的个数
