@@ -59,7 +59,6 @@ Contains
       Do j = 1, n
         write( 100,'(*(f12.4))' ) x(i), y(j), uu(i,j), log( x(i)*x(i) + y(j)*y(j) )
       End do
-      !write( *,'(*(f12.4))' ) uu(i,:)
     End do
     close( 100 )
     
