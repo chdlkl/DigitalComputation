@@ -7,6 +7,8 @@ fa = math.cos( a ) - a;
 fb = math.cos( b ) - b;
 if fa * fb > 0.0:
   print ( " error: f(a) * f(b) < 0 is not satisfied! " )
+  input()
+  quit()
 
 
 while ( b - a ) > eps:

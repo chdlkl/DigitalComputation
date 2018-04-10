@@ -6,7 +6,10 @@ Program BisectionMethod  !// 二分法求解方程f(t) = cos(t) - t在区间[0,1
 
   fa = cos(a) - a   !// 方程为: f(x) = cos(x) - x
   fb = cos(b) - b
-  If ( fa * fb > 0.d0 ) print*, 'error: f(a)*f(b) < 0 not satisfied!'
+  If ( fa * fb > 0.d0 ) then 
+    print*, 'error: f(a)*f(b) < 0 not satisfied!'
+    stop
+  end if
 
   Do while ( (b - a) > eps )  
     c = ( b + a ) / 2.d0
