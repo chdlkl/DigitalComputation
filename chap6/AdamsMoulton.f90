@@ -8,7 +8,7 @@
 Module AdamsMoulton
   Implicit none
 Contains
-  Subroutine solve()  
+  Subroutine solve( )  
     Real(kind=8), parameter :: T0 = 0.d0, T1 = 2.d0 !//n为阶数，T1，T0为计算区间
     Real(kind=8), parameter :: h = 1d-2  !//h为步长
     Integer, parameter :: n = 3
