@@ -15,7 +15,7 @@ m = 4
 eps = 1e-12
 a = np.array( [ [1.0, 1.0, 1.0, 1.0], [2.0, 3.0, 1.0, 1.0], [3.0, -1.0, 2.0, -1.0], [4.0, 1.0, -3.0, 2.0] ], dtype = float )
 b = np.array( [ 10.0, 15.0, 3.0, 5.0 ], dtype = float )
-x = np.zeros( (4,), dtype = float )
+x = np.zeros( (m,), dtype = float )
 
 print( '消去前矩阵a为：' )
 for i in range( len(a) ):
