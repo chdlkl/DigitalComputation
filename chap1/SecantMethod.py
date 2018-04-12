@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Apr 12 20:14:41 2018
+
+@author: luk
+"""
+
 x0 = 0.0; x1 = 1.0  # 迭代初始值
 eps = 1e-8  # 误差限度
 nloop = 1000  # 最大循环次数

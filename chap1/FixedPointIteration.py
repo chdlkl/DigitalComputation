@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Apr 12 20:10:20 2018
+
+@author: luk
+"""
+
 # 使用不动点迭代方法求解方程 x^3 + x - 1 = 0 的零点
 eps = 1e-8
 x0 = 0.5 # 初始迭代值

@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Apr 12 20:13:15 2018
+
+@author: luk
+"""
+
 eps = 1e-8  # 误差限度
 nloop = 1000  # 迭代上限
 
@@ -20,4 +27,3 @@ while True:
     x0 = xtemp
 
 print ( ' solution is ', xtemp )
-    
