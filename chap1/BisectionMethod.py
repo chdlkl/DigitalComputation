@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Apr 13 14:34:13 2018
+
+@author: luk
+"""
+
 # 二分法求解方程f(t) = cos(t) - t 在区间[0,1]上的解
 eps = 1e-12;  # 控制精度
 a = 0.0; b = 1.0;  # 搜索区间
