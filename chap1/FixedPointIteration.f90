@@ -6,7 +6,7 @@ Program FixedPointIteration  !// 使用不动点迭代方法求解方程 x^3 + x - 1 = 0 的零
   
   Do 
     xtemp = func ( x0 )
-    If ( abs( xtemp - x0 ) < 1.d-8 ) exit 
+    If ( abs( xtemp - x0 ) < eps ) exit 
     x0 = xtemp
   End do 
   Write ( *,'(a,f13.9)' ) ' the result of fixed point iteration is', xtemp
