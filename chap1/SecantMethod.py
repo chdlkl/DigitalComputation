@@ -24,3 +24,4 @@ while True:
   i = i + 1
 
 print ( " The root of x^3 + x - 1.0 is ", xtmp )
+input()

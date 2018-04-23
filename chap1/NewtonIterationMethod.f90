@@ -9,7 +9,7 @@ Program NewtonIterationMethod
   i = 0
   x0 = -0.7  !// ≥ı ºπ¿º∆÷µ
   Do 
-    xtmp = x0 - func(x0) / DerivativeFunc(x0)   !// X(i+1) = Xi - f(Xi) / f'(Xi)  i = 1,2,...N
+    xtmp = x0 - func(x0) / DerivativeFunc(x0)        !// X(i+1) = Xi - f(Xi) / f'(Xi)  i = 1,2,...N
     i = i + 1
     If ( abs( xtmp-x0 ) < eps .and. i > nloop ) exit
     x0 = xtmp
