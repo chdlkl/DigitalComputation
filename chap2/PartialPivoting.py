@@ -27,7 +27,7 @@ input()
 for j in range( len(a)-1 ):
        # -----------------换主元-----------------
        arr[:] = a[j,:]; arr_b = b[j]
-       tmp_a = a[j:m,j]
+       tmp_a = a[j:len(a),j]
        re = np.where( tmp_a == np.max( np.abs(tmp_a) ) )
        kk = re[0]  # 将元组re转化为数组kk
        k = kk[0]  # 提取数组kk中的元素值
@@ -68,3 +68,4 @@ a = np.linalg.inv(a)  # 求矩阵a的逆矩阵
 x = np.matmul(a,b)
 for i in range(len(x)):
       print( x[i] )
+input()
