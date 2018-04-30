@@ -49,6 +49,7 @@ for i in range(m):
       print( U[i,:] )
       
 # 检验LU分解是否正确：a = LU
+print( '检验LU分解是否正确，a = LU' )
 tmp_a = np.zeros( (m,m), dtype = np.float64 )
 tmp_a = np.matmul(L,U)
 for i in range(m):
