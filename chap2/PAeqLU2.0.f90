@@ -25,17 +25,23 @@ Subroutine Elimination ( )  !// 高斯消去
   Implicit none 
   Integer :: i, j, k
   Real(kind=8) :: mult, arrP(m), P(m,m), Pa(m,m)
+  Real(kind=8) :: arrA(m), tmpA(m,m)
   
+  tmpA = a
   !// 构造P矩阵
+  P = 0.d0
   forall ( i = 1:m, j = 1:m, i == j ) P(i,j) = 1.d0
   
   Do j = 1, m - 1
     !//-----------求置换矩阵--------------
     arrP(:) = P(j,:)
-    k = maxloc( abs( a(j:m,j) ), dim = 1 )
+    arrA(:) = tmpA(j,:)
+    k = maxloc( abs( tmpA(j:m,j) ), dim = 1 )
     k = k + j - 1
     P(j,:) = P(k,:)
+    tmpA(j,:) = tmpA(k,:)
     P(k,:) = arrP(:)
+    tmpA(k,:) = arrA(:)
   End do
   
   Write ( *,'(1x,a)' ) '置换矩阵P为：'
