@@ -5,7 +5,6 @@ Program QR
   Real(kind=8), parameter :: A(m,n) = reshape( [ 1.,2.,2.,-4.,3.,2.,2.,5.,-2.,6.,-4.,3. ],[m,n] )
   Real(kind=8) :: Q(m,n) = 0.d0, R(n,n) = 0.d0, y(m)
 
-
   Do j = 1, n
     y = A(:,j)
     Do i = 1, j - 1

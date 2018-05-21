@@ -20,13 +20,13 @@ Program QR_complete
   
   !// 检测QR分解是否正确
   !// A = QR
-  A0 = matmul( transpose(Q),R )
+  A0 = matmul( Q,R )
   Write ( *,'(1x, a)' ) 'The matrix A is:'
   Do i = 1, m
-    Write ( *,'(*(f12.5))' ) A(i,:)
+    Write ( *,'(*(f12.5))' ) A0(i,:)
   End do
   
-End program QR
+End program QR_complete
 
 Subroutine calQR( R, m, n, Q ) 
   Implicit none
