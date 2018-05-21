@@ -8,7 +8,7 @@ Program LagrangianInterpolation
   !// 获取插值基节点数据
   Open ( newunit = fileid, file = 'origin.dat' )
   Do i = 1, n1
-    x(i) = ( i-1 ) * ( t1-t0 ) / ( n1-1 )
+    x(i) = t0 + ( i-1 ) * ( t1-t0 ) / ( n1-1 )
     y(i) = exp( x(i) )
     Write ( fileid,'(2es)' ) x(i), y(i)
   End do 
@@ -27,7 +27,7 @@ Subroutine GetInterpolation( x, y, n1, t0, t1 )
   
   Open ( newunit = fileid, file = 'chazhi.dat' )
   Do k = 1, n
-    xx(k) = ( k-1 ) * ( t1-t0 ) / ( n-1 )
+    xx(k) = t0 + ( k-1 ) * ( t1-t0 ) / ( n-1 )
     Do i = 1, n1
       L1(i) = 1.d0
       Do j = 1, n1

@@ -56,7 +56,7 @@ Program ChebyshevInterpolation
   Do i = 1, n 
     x(i) = (b + a) / 2.d0 + ( b - a ) / 2.d0 * cos( ( 2.d0 * real(i,8) - 1.d0 ) * pi / 2.d0 / real(n,8) )  !// 构造切比雪夫点作为插值基点
     xx(i) = a / 2.d0 + real(i,8) * ( b - a ) / 2.d0 / real(n,8)  !// 待求插值节点
-    y(i) = 1.d0 / ( 1.d0 + 12.d0 * x(i) * x(i) )  !// y = exp(x)
+    y(i) = 1.d0 / ( 1.d0 + 12.d0 * x(i) * x(i) )  !// y = 1 / ( 1+12*x^2 )
   End Do 
   Call newtdd( x,y,c )  !// 求解系数c
   Call CalInterpolation( x,xx,c,res )  !// 求解插值节点处的节点值
