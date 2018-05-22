@@ -1,8 +1,9 @@
 Module mod
   Implicit none
-  Integer, parameter, public :: m = 4, n = 2
+  Integer, parameter, public :: m = 4, n = 3
   !Real(kind=8), public :: A(m,n) = reshape( [1.,2.,2.,-4,-4.,3.,2.,-2,1.,2.,3.,4.],[m,n] )
-  Real(kind=8), public :: A(m,n) = reshape( [1.,2.,2.,-4.,-4.,3.,2.,-2.],[m,n] )
+  Real(kind=8), public :: A(m,n) = reshape( [1.,2.,2.,-4.,3.,2.,2.,5.,2.,3.,4.,5.],[m,n] )
+  !Real(kind=8), public :: A(m,n) = reshape( [1.,2.,2.,-4.,-4.,3.,2.,-2.],[m,n] )
 Contains
   Subroutine calHouseholderMatrix
     Implicit none

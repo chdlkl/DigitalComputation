@@ -38,7 +38,6 @@ Contains
   Real(kind=8) function func( x )
     Implicit none
     Real(kind=8) :: x
-    
     func = log(x)
   End function func
 End module mod

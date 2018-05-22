@@ -1,0 +1,3 @@
+有的矩阵条件数太大
+不能用一般的completeQR分解
+只能用reducedQR分解或HouseholderQR分解(Householder也是完全QR分解，这种方法更靠谱)
