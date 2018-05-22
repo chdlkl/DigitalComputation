@@ -73,6 +73,7 @@ def GS():
         
         
         if ( np.dot(delta[:,0],delta[:,0]) < eps ): break
+        # 计算新的可能估计值对应的y和计算残差e
         yest_LM = atmp*np.exp( -btmp*xobs )
         d_LM = yobs - yest_LM
         e_LM = np.dot( d_LM,d_LM )
