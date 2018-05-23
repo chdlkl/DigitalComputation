@@ -1,6 +1,7 @@
 !// y'' = 4y
 !// y(0) = 1
 !// y(1) = 3
+!// y(t) = (3-e^2)*e^(2t)/(e^2-e^(-2)) + (e^2-3)*e^(-2t)/(e^2-e^(-2))
 Module LinBVP
   Implicit none
   Integer, parameter :: n = 99  !// 待求点的个数
@@ -17,7 +18,7 @@ Contains
     !// 系数矩阵a
     a = 0.d0  
     Do i = 1, n
-      a(i,i) = -4.d0*h*h - 2.d0
+      a(i,i) = -4.d0*h*h - 2.d0  !// 对角元素，只和h有关
     End do
     Do i = 1, n-1
       a(i,i+1) = 1.d0
@@ -26,8 +27,8 @@ Contains
     
     !// 右端项
     b = 0.d0
-    b(1) = -1.d0
-    b(n) = -3.d0
+    b(1) = -1.d0  !// 边值
+    b(n) = -3.d0  !// 边值
     
     !// 解方程
     Do j = 1, n - 1
